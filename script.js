@@ -162,6 +162,26 @@ checkIfWinGame = (numOfUnmatchedCards) => {
   } // else, continue game
 }
 
+function shuffleCards(array) {
+  var roundsLeftToShuffle = array.length;
+  var placeholder;
+  var i;
+  // While there remain elements to shuffle…
+  while (roundsLeftToShuffle) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * roundsLeftToShuffle--);
+
+    // And swap it with the current element.
+    placeholder = array[roundsLeftToShuffle];
+    array[roundsLeftToShuffle] = array[i];
+    array[i] = placeholder;
+  }
+  return array;
+}
+
+shuffleCards(cardArray)
+
 /* KNOWN PROBLEMS
 PROBLEM: if player clicks on an already clicked card, game reads this as clicking on new card, and then matches card to itself
 SOLUTION: check with isClicked function, with reference to Chore Door Game
